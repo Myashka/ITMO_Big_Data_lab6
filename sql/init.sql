@@ -1,0 +1,21 @@
+CREATE TABLE FoodProducts (
+    code VARCHAR(50),
+    product_name VARCHAR(255),
+    categories_en VARCHAR(255),
+    energy_kcal_100g FLOAT,
+    energy_100g FLOAT,
+    fat_100g FLOAT,
+    saturated_fat_100g FLOAT,
+    trans_fat_100g FLOAT,
+    cholesterol_100g FLOAT,
+    carbohydrates_100g FLOAT,
+    sugars_100g FLOAT,
+    fiber_100g FLOAT,
+    proteins_100g FLOAT,
+    salt_100g FLOAT,
+    sodium_100g FLOAT,
+    calcium_100g FLOAT,
+    iron_100g FLOAT,
+    nutrition_score_fr_100g FLOAT,
+    prediction INT
+);

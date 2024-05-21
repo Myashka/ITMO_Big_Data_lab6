@@ -1,0 +1,18 @@
+kmeans:
+  k: 10
+  maxIter: 20
+  seed: 42
+
+data:
+  data_path: "data/openfood.csv"
+  feature_path: "configs/features.json"
+
+spark:
+  app_name: "food_cluster"
+  deploy_mode: "local"
+  driver_memory: "4g"
+  executor_memory: "16g"
+  executor_cores: 1
+  driver_cores: 1
+
+save_to: "models/food_cluster"
