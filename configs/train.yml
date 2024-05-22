@@ -15,4 +15,12 @@ spark:
   executor_cores: 1
   driver_cores: 1
 
+db:
+  server: "mssql-server"
+  database: "FoodData"
+  username: "sa"
+  password: "yourStrong(!)Password"
+  driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+
+
 save_to: "models/food_cluster"

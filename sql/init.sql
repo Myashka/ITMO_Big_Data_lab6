@@ -1,7 +1,15 @@
+IF NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'FoodData')
+CREATE DATABASE FoodData;
+GO
+
+USE FoodData;
+GO
+
+-- Создание таблицы, если она еще не существует
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FoodProducts]') AND type in (N'U'))
 CREATE TABLE FoodProducts (
-    code VARCHAR(50),
+    code BIGINT,
     product_name VARCHAR(255),
-    categories_en VARCHAR(255),
     energy_kcal_100g FLOAT,
     energy_100g FLOAT,
     fat_100g FLOAT,
@@ -17,5 +25,20 @@ CREATE TABLE FoodProducts (
     calcium_100g FLOAT,
     iron_100g FLOAT,
     nutrition_score_fr_100g FLOAT,
-    prediction INT
+    categories_en TEXT
 );
+GO
+
+-- Загрузка данных из CSV файла
+BULK INSERT FoodProducts
+FROM '/data/openfood.csv'
+WITH (
+    FORMAT='CSV',
+    FIRSTROW = 2
+);
+GO
+
+-- Добавление столбца prediction после загрузки данных
+ALTER TABLE FoodProducts
+ADD prediction INT NULL;
+GO

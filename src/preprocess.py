@@ -16,10 +16,10 @@ class Preprocessor:
 
         self.data_config = data_config
 
-    def load_data(self, spark: pyspark.sql.SparkSession) -> pyspark.sql.DataFrame:
-        df = spark.read.csv(self.data_config.data_path, header=True, inferSchema=True)
+    # def load_data(self, spark: pyspark.sql.SparkSession) -> pyspark.sql.DataFrame:
+    #     df = spark.read.csv(self.data_config.data_path, header=True, inferSchema=True)
 
-        return df
+    #     return df
 
     def preprocess(self, df: pyspark.sql.DataFrame) -> pyspark.sql.DataFrame:
 
